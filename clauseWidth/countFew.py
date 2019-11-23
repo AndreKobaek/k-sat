@@ -1,8 +1,8 @@
 from shutil import copyfile
 import os
 #path = os.getcwd()
-tempFileName = "tester2.txt"
-#tempFileName = "inputFile.txt"
+#tempFileName = "tester2.txt"
+tempFileName = "inputFile.txt"
 checker = True
 SATsolver = "./minisat_static"
 filename = "testFile.cnf"
@@ -12,7 +12,6 @@ term = SATsolver + " " + tempFileName + " " + output + " >> log.txt"
 def satisfiable():
     with  open(output, "r") as satResult:    
         resultLines =  satResult.readlines()
-    
     if resultLines[0][:3] == "SAT":
         return True
     return False
@@ -37,20 +36,20 @@ def addInvertedClause():
     with open(tempFileName, "w") as newInputFile:
         print(clauses + appendClause, file=newInputFile)
 
-
 def copyInputFile():
     copyfile(filename, tempFileName)
 
-def count_few(maximum_runs: int):
+def count_few(cnfFile: str, maximum_runs: int):
+    tempFileName = cnfFile
     copyInputFile()
-    number_of_fucking_solutions = 0
-    for _ in range(3):
+    number_of_solutions = 0
+    for _ in range(maximum_runs):
         os.system(term)
         if satisfiable():
             addInvertedClause()
-            number_of_fucking_solutions += 1
+            number_of_solutions += 1
         else:
             break
-    return number_of_fucking_solutions
+    return number_of_solutions
 
 # def has_variables TODO
