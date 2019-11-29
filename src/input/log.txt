@@ -1,0 +1,1 @@
+#literals/n: 200, #clauses: 860, t: 35
