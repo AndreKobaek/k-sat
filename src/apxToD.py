@@ -1,5 +1,6 @@
 from hashing import *
 from countFew import *
+import os
 import math
 import sys
 tempFileName = "input/inputFile.txt"
@@ -53,9 +54,9 @@ def the_algorithm_2(filename: str, a: int, s: int):
 def inner_m_loop(F: CNF, m: int, t: int, a: int, n: int, s: int):
     z = 0
     for i in range(2**t):
+        if z>0: print("m: {}, i: {}, z_i: {}, n: {}, #c: {}".format(m, i, z, F.number_of_literals, F.number_of_clauses))
         hashed_clauses = generate_hashing(F, s, m+t, n)
         if hashed_clauses != None:
-            print("m: {}, i: {}, z_i: {}, #hashed_clauses: {}".format(m, i, z, len(hashed_clauses)))
             F_mi = append_clauses(F, hashed_clauses)
         else:
             return None
@@ -68,4 +69,18 @@ def inner_m_loop(F: CNF, m: int, t: int, a: int, n: int, s: int):
     return 2**(m*z)
 
 
-print(the_algorithm_2("input/"+sys.argv[1]+".cnf", 1000, 6))
+#print(the_algorithm_2("input/"+sys.argv[1]+".cnf", 1000, 6))
+
+externalDir = '/media/andre/LinUXB/research-project/'
+subDir1 = 'agile/'
+subDir2 = 'main/'
+subDir3 = 'incremental/'
+subDir4 = 'random/'
+directory = externalDir+subDir3
+entries = os.listdir(directory)
+a = 100
+s = 6
+for entry in entries:
+    filename = directory+entry
+    k = the_algorithm_2(filename,a,s)
+    if k != None: print(filename+" "+str(k))
