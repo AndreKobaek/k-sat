@@ -1,31 +1,28 @@
 import os
-from apxToD import *
 #localDir = '../benchmark-data/randomSatUnzip/'
 externalDir = '/media/andre/LinUXB/research-project/'
-subDir1 = 'agile/'
-subDir2 = 'main/'
-subDir3 = 'incremental/'
-subDir4 = 'random/'
-directory = externalDir+subDir2
+subDir = ['main/', 'incremental/', 'random/']
 
-def check_clause_width():
+
+def check_clause_width(directory: str):
     maxClause = 0
     entries = os.listdir(directory)
     for entry in entries:
         filename = directory+entry
-        f = open(filename, "r")
-        clauseWidth = 0
-        lines = f.readlines()
-        for line in lines:
-            if line[0] != "c" and line[0] != "p":
-                clauseWidth = max(clauseWidth, len(line.split()))
-        maxClause = max(maxClause,clauseWidth)
-        print(entry+ ", "+ str(clauseWidth))
-    print("maxclause width in dir: "+str(maxClause))
+        with open(filename, "r") as f:
+            lines = f.readlines()
 
-entries = os.listdir(directory)
-a = 100
-s = 6
-for entry in entries:
-    filename = directory+entry
-    the_algorithm_2(filename,a,s)
+        clauseWidth, literals, clauses = 0, 0, 0
+        for line in lines:
+            if line[0] != "c" and line[0] != "p": 
+                clauseWidth = max(clauseWidth, len(line.split())-1)
+            if line[0] == "p":
+                metadata = line.split()
+                literals = metadata[2]
+                clauses = metadata[3]
+        maxClause = max(maxClause,clauseWidth)
+        print("{}, {}, {}, {}".format(entry, literals, clauses, maxClause))
+
+print("filename, literals, clauses, width")
+for subD in subDir:
+    check_clause_width(externalDir+subD)

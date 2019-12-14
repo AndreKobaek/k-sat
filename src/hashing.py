@@ -43,21 +43,3 @@ def generate_hashing(F: CNF, s: int, no_of_rows: int, n: int) -> List[List[int]]
             if b[i] ==1:
                 return None
     return clauses
-
-# IRRELEVANT
-
-# def generate_row(n: int):
-#     one_entries = list(range(n))
-#     random.shuffle(one_entries)
-#     input_to_alter = one_entries[:s]
-#     return_row = [0]*n
-#     for i in input_to_alter:
-#         if random.randint(0,1)==1:
-#             return_row[i] = i+1
-#     return return_row
-
-# def hashing_matrix(rows: int, columns: int):
-#     A = np.array(generate_row(columns))
-#     for i in range(rows-1):
-#         A = np.vstack([A,np.array(generate_row(columns))])
-#     return A
