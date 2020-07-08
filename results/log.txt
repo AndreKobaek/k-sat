@@ -1,0 +1,18 @@
+CNF: cnf-gen-L20-W3-C30.cnf: CE = 14978 in -0.01
+CNF: cnf-gen-L10-W3-C30.cnf: CE = 23 in -0.01, CF = 23 in -0.26
+CNF: cnf-gen-L24-W3-C10.cnf: CE = 4648960 in -0.01
+CNF: cnf-gen-L25-W3-C20.cnf: CE = 2862176 in -0.01
+CNF: cnf-gen-L14-W3-C20.cnf: CE = 873 in -0.01, CF = 873 in -6.69
+CNF: cnf-gen-L5-W3-C10.cnf: CE = 8 in -0.01, CF = 8 in -0.06
+CNF: cnf-gen-L15-W3-C30.cnf: CE = 352 in -0.01, CF = 352 in -2.79
+CNF: cnf-gen-L24-W3-C30.cnf: CE = 155620 in -0.01
+CNF: cnf-gen-L5-W3-C20.cnf: CE = 3 in -0.01, CF = 3 in -0.03
+CNF: cnf-gen-L5-W3-C30.cnf: CE = 1 in -0.01, CF = 1 in -0.02
+CNF: cnf-gen-L20-W3-C10.cnf: CE = 260096 in -0.01
+CNF: cnf-gen-L25-W3-C30.cnf: CE = 627560 in -0.01
+CNF: cnf-gen-L25-W3-C10.cnf: CE = 8747008 in -0.01
+CNF: cnf-gen-L20-W3-C20.cnf: CE = 92052 in -0.01
+CNF: cnf-gen-L10-W3-C10.cnf: CE = 244 in -0.01, CF = 244 in -1.03
+CNF: cnf-gen-L15-W3-C20.cnf: CE = 2744 in -0.01, CF = 2744 in -15.57
+CNF: cnf-gen-L10-W3-C20.cnf: CE = 56 in -0.00, CF = 56 in -0.36
+CNF: cnf-gen-L15-W3-C10.cnf: CE = 8224 in -0.01, CF = 8224 in -23.70

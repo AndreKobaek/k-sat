@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cd abcdsat/simp
-make r 2>&1
-cp abcdSAT_release ../../bin/abcdsat_r17
-

@@ -1,4 +1,0 @@
-#!/bin/bash
-
-./abcdsat_r17 $1
-

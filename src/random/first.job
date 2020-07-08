@@ -1,0 +1,9 @@
+#!/bin/bash
+#SBATCH --job-name=first_test
+#SBATCH --partition=red
+#SBATCH --mem=10G
+#SBATCH --nodes=1
+#SBATCH --time=15:00:00
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+./project/sharpSAT/build/Release/sharpSAT project/test/testFile3.cnf > /project/output.txt

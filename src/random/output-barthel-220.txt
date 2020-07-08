@@ -1,0 +1,77 @@
+Solving /media/andre/LinUXB/research-project/test02/fla-barthel-220-1.cnf
+variables (all/used/free): 	220/220/0
+clauses (all/long/binary/unit): 946/946/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	220/220/0
+clauses (all/long/binary/unit): 946/946/0/0
+56 16
+Maximum cache size:	397 MB
+
+
+
+variables (total / active / free)	220/220/0
+clauses (removed) 			946 (0)
+decisions 				4806
+conflicts 				4760
+conflict clauses (all/bin/unit) 	32663/0/0
+
+failed literals found by implicit BCP 	 22639
+implicit BCP miss rate 	 96.4991%
+bytes cache size     	20240336	
+bytes cache (overall) 	21195192
+bytes cache (infra / comps) 20234400/5936	
+bytes pure comp data (curr)    1968
+bytes pure comp data (overall) 653144
+bytes cache with sysoverh (curr)    9792
+bytes cache with sysoverh (overall) 1258568
+cache (stores / hits) 			62/55
+cache miss rate 98.8685%
+ avg. variable count (stores / hits) 	54.1613/3.65455
+
+
+# solutions 
+90065664
+# END
+
+time: 1.38493s
+
+Solving /media/andre/LinUXB/research-project/test02/fla-barthel-260-5.cnf
+variables (all/used/free): 	260/260/0
+clauses (all/long/binary/unit): 1118/1118/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	260/260/0
+clauses (all/long/binary/unit): 1118/1118/0/0
+56 16
+Maximum cache size:	525 MB
+
+
+time elapsed: 60.2612s
+
+
+variables (total / active / free)	260/260/0
+clauses (removed) 			1118 (0)
+decisions 				36644
+conflicts 				30603
+conflict clauses (all/bin/unit) 	214263/5/0
+
+failed literals found by implicit BCP 	 155154
+implicit BCP miss rate 	 96.573%
+bytes cache size     	20911892	
+bytes cache (overall) 	27862840
+bytes cache (infra / comps) 20234400/677492	
+bytes pure comp data (curr)    266164
+bytes pure comp data (overall) 5283160
+bytes cache with sysoverh (curr)    1075048
+bytes cache with sysoverh (overall) 9900536
+cache (stores / hits) 			6427/10172
+cache miss rate 78.2724%
+ avg. variable count (stores / hits) 	31.9088/5.67715
+
+
+# solutions 
+2001669162496
+# END
+
+time: 76.77s

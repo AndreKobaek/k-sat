@@ -1,0 +1,368 @@
+Solving /home/andre/../../media/andre/LinUXB/research-project/test02/fla-barthel-220-1.cnf
+variables (all/used/free): 	220/220/0
+clauses (all/long/binary/unit): 946/946/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	220/220/0
+clauses (all/long/binary/unit): 946/946/0/0
+56 16
+Maximum cache size:	284 MB
+
+
+
+variables (total / active / free)	220/220/0
+clauses (removed) 			946 (0)
+decisions 				4806
+conflicts 				4760
+conflict clauses (all/bin/unit) 	32663/0/0
+
+failed literals found by implicit BCP 	 22639
+implicit BCP miss rate 	 96.4991%
+bytes cache size     	20240336	
+bytes cache (overall) 	21195192
+bytes cache (infra / comps) 20234400/5936	
+bytes pure comp data (curr)    1968
+bytes pure comp data (overall) 653144
+bytes cache with sysoverh (curr)    9792
+bytes cache with sysoverh (overall) 1258568
+cache (stores / hits) 			62/55
+cache miss rate 98.8685%
+ avg. variable count (stores / hits) 	54.1613/3.65455
+
+
+# solutions 
+90065664
+# END
+
+time: 1.3245s
+
+Solving /home/andre/../../media/andre/LinUXB/research-project/test02/fla-barthel-260-5.cnf
+variables (all/used/free): 	260/260/0
+clauses (all/long/binary/unit): 1118/1118/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	260/260/0
+clauses (all/long/binary/unit): 1118/1118/0/0
+56 16
+Maximum cache size:	289 MB
+
+Solving /home/andre/../../media/andre/LinUXB/research-project/test02/fla-barthel-220-1.cnf
+variables (all/used/free): 	220/220/0
+clauses (all/long/binary/unit): 946/946/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	220/220/0
+clauses (all/long/binary/unit): 946/946/0/0
+56 16
+Maximum cache size:	265 MB
+
+
+
+variables (total / active / free)	220/220/0
+clauses (removed) 			946 (0)
+decisions 				4806
+conflicts 				4760
+conflict clauses (all/bin/unit) 	32663/0/0
+
+failed literals found by implicit BCP 	 22639
+implicit BCP miss rate 	 96.4991%
+bytes cache size     	20240336	
+bytes cache (overall) 	21195192
+bytes cache (infra / comps) 20234400/5936	
+bytes pure comp data (curr)    1968
+bytes pure comp data (overall) 653144
+bytes cache with sysoverh (curr)    9792
+bytes cache with sysoverh (overall) 1258568
+cache (stores / hits) 			62/55
+cache miss rate 98.8685%
+ avg. variable count (stores / hits) 	54.1613/3.65455
+
+
+# solutions 
+90065664
+# END
+
+time: 1.25324s
+
+Solving /home/andre/../../media/andre/LinUXB/research-project/test02/fla-barthel-260-5.cnf
+variables (all/used/free): 	260/260/0
+clauses (all/long/binary/unit): 1118/1118/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	260/260/0
+clauses (all/long/binary/unit): 1118/1118/0/0
+56 16
+Maximum cache size:	276 MB
+
+
+time elapsed: 60.2687s
+Solving /home/andre/../../media/andre/LinUXB/research-project/test02/fla-barthel-260-5.cnf
+variables (all/used/free): 	260/260/0
+clauses (all/long/binary/unit): 1118/1118/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	260/260/0
+clauses (all/long/binary/unit): 1118/1118/0/0
+56 16
+Maximum cache size:	341 MB
+
+
+time elapsed: 60.1906s
+
+
+variables (total / active / free)	260/260/0
+clauses (removed) 			1118 (0)
+decisions 				36644
+conflicts 				30603
+conflict clauses (all/bin/unit) 	214263/5/0
+
+failed literals found by implicit BCP 	 155154
+implicit BCP miss rate 	 96.573%
+bytes cache size     	20911892	
+bytes cache (overall) 	27862840
+bytes cache (infra / comps) 20234400/677492	
+bytes pure comp data (curr)    266164
+bytes pure comp data (overall) 5283160
+bytes cache with sysoverh (curr)    1075048
+bytes cache with sysoverh (overall) 9900536
+cache (stores / hits) 			6427/10172
+cache miss rate 78.2724%
+ avg. variable count (stores / hits) 	31.9088/5.67715
+
+
+# solutions 
+2001669162496
+# END
+
+time: 67.0741s
+
+Solving /home/andre/../../media/andre/LinUXB/research-project/test02/fla-barthel-220-1.cnf
+variables (all/used/free): 	220/220/0
+clauses (all/long/binary/unit): 946/946/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	220/220/0
+clauses (all/long/binary/unit): 946/946/0/0
+56 16
+Maximum cache size:	185 MB
+
+
+
+variables (total / active / free)	220/220/0
+clauses (removed) 			946 (0)
+decisions 				4806
+conflicts 				4760
+conflict clauses (all/bin/unit) 	32663/0/0
+
+failed literals found by implicit BCP 	 22639
+implicit BCP miss rate 	 96.4991%
+bytes cache size     	20240336	
+bytes cache (overall) 	21195192
+bytes cache (infra / comps) 20234400/5936	
+bytes pure comp data (curr)    1968
+bytes pure comp data (overall) 653144
+bytes cache with sysoverh (curr)    9792
+bytes cache with sysoverh (overall) 1258568
+cache (stores / hits) 			62/55
+cache miss rate 98.8685%
+ avg. variable count (stores / hits) 	54.1613/3.65455
+
+
+# solutions 
+90065664
+# END
+
+time: 1.53018s
+
+Solving /home/andre/../../media/andre/LinUXB/research-project/test02/fla-barthel-260-5.cnf
+variables (all/used/free): 	260/260/0
+clauses (all/long/binary/unit): 1118/1118/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	260/260/0
+clauses (all/long/binary/unit): 1118/1118/0/0
+56 16
+Maximum cache size:	194 MB
+
+
+time elapsed: 60.3714s
+
+
+variables (total / active / free)	260/260/0
+clauses (removed) 			1118 (0)
+decisions 				36644
+conflicts 				30603
+conflict clauses (all/bin/unit) 	214263/5/0
+
+failed literals found by implicit BCP 	 155154
+implicit BCP miss rate 	 96.573%
+bytes cache size     	20911892	
+bytes cache (overall) 	27862840
+bytes cache (infra / comps) 20234400/677492	
+bytes pure comp data (curr)    266164
+bytes pure comp data (overall) 5283160
+bytes cache with sysoverh (curr)    1075048
+bytes cache with sysoverh (overall) 9900536
+cache (stores / hits) 			6427/10172
+cache miss rate 78.2724%
+ avg. variable count (stores / hits) 	31.9088/5.67715
+
+
+# solutions 
+2001669162496
+# END
+
+time: 110.822s
+
+Solving /home/andre/../../media/andre/LinUXB/research-project/test02/fla-komb-220-3.cnf
+variables (all/used/free): 	220/220/0
+clauses (all/long/binary/unit): 1145/1145/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	220/220/0
+clauses (all/long/binary/unit): 1145/1145/0/0
+56 16
+Maximum cache size:	154 MB
+
+
+
+variables (total / active / free)	220/220/0
+clauses (removed) 			1145 (0)
+decisions 				911
+conflicts 				908
+conflict clauses (all/bin/unit) 	6753/0/0
+
+failed literals found by implicit BCP 	 4784
+implicit BCP miss rate 	 96.6589%
+bytes cache size     	20236496	
+bytes cache (overall) 	20414848
+bytes cache (infra / comps) 20234400/2096	
+bytes pure comp data (curr)    1136
+bytes pure comp data (overall) 122080
+bytes cache with sysoverh (curr)    3016
+bytes cache with sysoverh (overall) 237152
+cache (stores / hits) 			15/0
+cache miss rate 100%
+ avg. variable count (stores / hits) 	171.467/0
+
+
+# solutions 
+384
+# END
+
+time: 0.259137s
+
+Solving /home/andre/../../media/andre/LinUXB/research-project/test02/fla-komb-280-1.cnf
+variables (all/used/free): 	280/280/0
+clauses (all/long/binary/unit): 1457/1457/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	280/280/0
+clauses (all/long/binary/unit): 1457/1457/0/0
+56 16
+Maximum cache size:	197 MB
+
+
+
+variables (total / active / free)	280/280/0
+clauses (removed) 			1457 (0)
+decisions 				5431
+conflicts 				5429
+conflict clauses (all/bin/unit) 	35948/0/0
+
+failed literals found by implicit BCP 	 24839
+implicit BCP miss rate 	 97.2948%
+bytes cache size     	20236196	
+bytes cache (overall) 	21498592
+bytes cache (infra / comps) 20234400/1796	
+bytes pure comp data (curr)    964
+bytes pure comp data (overall) 916544
+bytes cache with sysoverh (curr)    2616
+bytes cache with sysoverh (overall) 1600672
+cache (stores / hits) 			13/0
+cache miss rate 100%
+ avg. variable count (stores / hits) 	232.923/0
+
+
+# solutions 
+288
+# END
+
+time: 3.43243s
+
+Solving /home/andre/../../media/andre/LinUXB/research-project/test02/fla-qhid-240-5.cnf
+variables (all/used/free): 	240/240/0
+clauses (all/long/binary/unit): 1320/1320/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	240/240/0
+clauses (all/long/binary/unit): 1320/1320/0/0
+56 16
+Maximum cache size:	212 MB
+
+
+
+variables (total / active / free)	240/240/0
+clauses (removed) 			1320 (0)
+decisions 				375091
+conflicts 				2014
+conflict clauses (all/bin/unit) 	15603/0/0
+
+failed literals found by implicit BCP 	 11280
+implicit BCP miss rate 	 98.6742%
+bytes cache size     	57929800	
+bytes cache (overall) 	58278092
+bytes cache (infra / comps) 20234400/37695400	
+bytes pure comp data (curr)    13795560
+bytes pure comp data (overall) 14037804
+bytes cache with sysoverh (curr)    60878840
+bytes cache with sysoverh (overall) 61329840
+cache (stores / hits) 			373435/881855
+cache miss rate 29.8415%
+ avg. variable count (stores / hits) 	19.4897/4.6883
+
+
+# solutions 
+56233414031078
+# END
+
+time: 3.74548s
+
+Solving /home/andre/../../media/andre/LinUXB/research-project/test02/fla-qhid-300-1.cnf
+variables (all/used/free): 	300/300/0
+clauses (all/long/binary/unit): 1650/1650/0/0
+
+Preprocessing .. DONE
+variables (all/used/free): 	300/300/0
+clauses (all/long/binary/unit): 1650/1650/0/0
+56 16
+Maximum cache size:	238 MB
+
+
+
+variables (total / active / free)	300/300/0
+clauses (removed) 			1650 (0)
+decisions 				9973
+conflicts 				9973
+conflict clauses (all/bin/unit) 	68324/0/0
+
+failed literals found by implicit BCP 	 49832
+implicit BCP miss rate 	 97.3571%
+bytes cache size     	20236780	
+bytes cache (overall) 	22886416
+bytes cache (infra / comps) 20234400/2380	
+bytes pure comp data (curr)    1484
+bytes pure comp data (overall) 2013680
+bytes cache with sysoverh (curr)    3264
+bytes cache with sysoverh (overall) 3269952
+cache (stores / hits) 			14/0
+cache miss rate 100%
+ avg. variable count (stores / hits) 	292.643/0
+
+
+# solutions 
+512
+# END
+
+time: 9.41325s
+

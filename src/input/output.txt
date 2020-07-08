@@ -1,2 +1,38 @@
-SAT
--1 0
+Solving input/inputFile.txt
+variables (all/used/free): 	9/9/0
+clauses (all/long/binary/unit): 34/33/0/1
+
+Preprocessing .. DONE
+variables (all/used/free): 	8/8/0
+clauses (all/long/binary/unit): 20/18/2/0
+56 16
+Maximum cache size:	2626 MB
+
+
+
+variables (total / active / free)	8/8/0
+clauses (removed) 			34 (14)
+decisions 				8
+conflicts 				0
+conflict clauses (all/bin/unit) 	1/0/0
+
+failed literals found by implicit BCP 	 1
+implicit BCP miss rate 	 97.1429%
+bytes cache size     	20235036	
+bytes cache (overall) 	20235036
+bytes cache (infra / comps) 20234400/636	
+bytes pure comp data (curr)    60
+bytes pure comp data (overall) 60
+bytes cache with sysoverh (curr)    1224
+bytes cache with sysoverh (overall) 1224
+cache (stores / hits) 			9/1
+cache miss rate 88.8889%
+ avg. variable count (stores / hits) 	4.77778/2
+
+
+# solutions 
+16
+# END
+
+time: 0.00237s
+

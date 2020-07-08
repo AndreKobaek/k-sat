@@ -1,0 +1,13 @@
+Experiment 1 - Which solver performs better, run @ 14/12/2019 13:48:43. With the test files ['fla-barthel-260-5.cnf', 'fla-komb-220-3.cnf', 'fla-barthel-220-1.cnf', 'fla-qhid-240-5.cnf', 'fla-qhid-300-1.cnf', 'fla-komb-280-1.cnf'] and the solvers ['minisat_static', 'glucose_static']
+/media/andre/LinUXB/research-project/test02/fla-barthel-260-5.cnf, minisat_static, 12.2935, None
+/media/andre/LinUXB/research-project/test02/fla-barthel-260-5.cnf, glucose_static, 268.5201, None 
+/media/andre/LinUXB/research-project/test02/fla-komb-220-3.cnf, minisat_static, 5.8678, None 
+/media/andre/LinUXB/research-project/test02/fla-komb-220-3.cnf, glucose_static, 51.2700, None 
+/media/andre/LinUXB/research-project/test02/fla-barthel-220-1.cnf, minisat_static, 8.0822, None 
+/media/andre/LinUXB/research-project/test02/fla-barthel-220-1.cnf, glucose_static, 141.2231, None
+/media/andre/LinUXB/research-project/test02/fla-qhid-240-5.cnf, minisat_static, 5.2988, None 
+/media/andre/LinUXB/research-project/test02/fla-qhid-240-5.cnf, glucose_static, 74.1762, None 
+/media/andre/LinUXB/research-project/test02/fla-qhid-300-1.cnf, minisat_static, 7.9163, None 
+/media/andre/LinUXB/research-project/test02/fla-qhid-300-1.cnf, glucose_static, 155.1320, None 
+/media/andre/LinUXB/research-project/test02/fla-komb-280-1.cnf, minisat_static, 8.4427, None 
+/media/andre/LinUXB/research-project/test02/fla-komb-280-1.cnf, glucose_static, 167.0965, None 
