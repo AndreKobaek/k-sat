@@ -1,5 +1,5 @@
 import subprocess
-from os import system
+from os import chdir, getcwd, system
 from typing import List
 
 from cnf import CNF
@@ -25,6 +25,22 @@ def count_exact_with_timeout(F: CNF, timeout_limit: int) -> int:
     except:
         return None
 
+def count_exact_ganak(input_cnf: str) -> int:
+    query_str = "./run_ganak.sh ../../src/{} > ../../src/{}".format(input_cnf, output)
+    reset_cwd = getcwd()
+    chdir("../ganak/scripts/")
+    system(query_str)
+    chdir(reset_cwd)
+    return read_ganak_result()
+
+def read_ganak_result() -> int:
+    with open(output, "r") as exactCount:
+        resultLines = exactCount.readlines()
+    for line in resultLines:
+        if line[0] == "s":
+            return int(line.split()[-1])
+    return -1
+
 
 def read_result() -> int:
     with open(output, "r") as exactCount:
@@ -32,7 +48,7 @@ def read_result() -> int:
     return int(resultLines[-5])
 
 
-def count_exact_file(filename: str, output_file: str) -> List:
+def count_exact_file(filename: str, output_file="input/output.txt") -> List:
     query = "./../sharpSAT/build/Release/sharpSAT {} > {}".format(filename, output_file)
     system(query)
     return read_result_file(output_file)
