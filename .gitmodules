@@ -1,0 +1,3 @@
+[submodule "approxmc2/approxmc"]
+	path = approxmc2/approxmc
+	url = https://github.com/meelgroup/approxmc
