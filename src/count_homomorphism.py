@@ -1,5 +1,6 @@
-from sys import argv
 from os import system
+from sys import argv
+
 from graph import Graph
 
 output_file = "input/output_graph.txt"

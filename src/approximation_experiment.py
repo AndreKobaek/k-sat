@@ -1,15 +1,14 @@
 import os
 import random
-
 import signal
 from contextlib import contextmanager
-
-
-from count_exact import count_exact_with_timeout
-from cnf_io import read_cnf_file
-from run_apx_to_d import run_apx_to_d
 from datetime import datetime
+
 import pandas as pd
+
+from cnf_io import read_cnf_file
+from count_exact import count_exact_with_timeout
+from run_apx_to_d import run_apx_to_d
 
 seed = 10
 random.seed(seed)

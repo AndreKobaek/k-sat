@@ -1,5 +1,4 @@
 import math
-
 import signal
 from contextlib import contextmanager
 

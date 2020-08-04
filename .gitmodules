@@ -1,3 +1,9 @@
 [submodule "approxmc2/approxmc"]
 	path = approxmc2/approxmc
 	url = https://github.com/meelgroup/approxmc
+[submodule "SubgraphThesis"]
+	path = approxmc2/SubgraphThesis
+	url = https://github.itu.dk/jonmo/SubgraphThesis
+[submodule "approxmc2"]
+	path = approxmc
+	url = https://github.com/meelgroup/approxmc/tree/approxmc

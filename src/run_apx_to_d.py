@@ -6,7 +6,6 @@ from types import LambdaType
 from apx_to_d import apx_to_d
 from cnf_io import copy_input_file, read_cnf_file
 
-
 # input python run_apx_to_d.py "generated-input-bin_search/cnf-gen-L220-W3-C965-I6.cnf" 0.33 0.5 3 180 1337
 # filename = argv[1]
 # delta = float(argv[2])

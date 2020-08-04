@@ -1,38 +1,67 @@
-Solving generated-input/cnf-hom-h-k3.gr-g-paley-101.gr.cnf
-variables (all/used/free): 	303/303/0
-clauses (all/long/binary/unit): 30303/3/30300/0
+Solving generated-input/cnf-emb-h-cycle5-g-paley-101.cnf
+variables (all/used/free): 	505/505/0
+clauses (all/long/binary/unit): 51515/5/51510/0
 
 Preprocessing .. DONE
-variables (all/used/free): 	303/303/0
-clauses (all/long/binary/unit): 30303/3/30300/0
+variables (all/used/free): 	505/505/0
+clauses (all/long/binary/unit): 51515/5/51510/0
 56 16
-Maximum cache size:	1135 MB
+Maximum cache size:	708 MB
+
+ts 2097152 2097151
+coll 198894
+ts 4194304 4194303
+coll 402123
+
+time elapsed: 60.2234s
+ts 8388608 8388607
+coll 810564
+
+time elapsed: 121.223s
+ts 8388608 8388607
+coll 728407
+
+time elapsed: 182.223s
+ts 8388608 8388607
+coll 515908
+
+time elapsed: 243.223s
+ts 8388608 8388607
+coll 519113
+
+time elapsed: 304.223s
+ts 8388608 8388607
+coll 520352
+
+time elapsed: 365.223s
+ts 8388608 8388607
+coll 519012
+
+time elapsed: 426.224s
 
 
-
-variables (total / active / free)	303/303/0
-clauses (removed) 			30303 (0)
-decisions 				66157
-conflicts 				0
+variables (total / active / free)	505/505/0
+clauses (removed) 			51515 (0)
+decisions 				22951390
+conflicts 				2536
 conflict clauses (all/bin/unit) 	0/0/0
 
 failed literals found by implicit BCP 	 0
 implicit BCP miss rate 	 100%
-bytes cache size     	25513024	
-bytes cache (overall) 	25513024
-bytes cache (infra / comps) 20234400/5278624	
-bytes pure comp data (curr)    1044512
-bytes pure comp data (overall) 1044512
-bytes cache with sysoverh (curr)    9303904
-bytes cache with sysoverh (overall) 9303904
-cache (stores / hits) 			66158/4931
-cache miss rate 93.0635%
- avg. variable count (stores / hits) 	21.1344/14.9866
+bytes cache size     	642103676	
+bytes cache (overall) 	2176080556
+bytes cache (infra / comps) 118034528/524069148	
+bytes pure comp data (curr)    150196572
+bytes pure comp data (overall) 589157004
+bytes cache with sysoverh (curr)    876804760
+bytes cache with sysoverh (overall) 3443029320
+cache (stores / hits) 			10472182/11616661
+cache miss rate 66.3948%
+ avg. variable count (stores / hits) 	26.3404/22.7093
 
 
 # solutions 
-136451
+282643450
 # END
 
-time: 0.612612s
-
+time: 453.036s
