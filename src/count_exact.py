@@ -1,7 +1,10 @@
-import subprocess
-from os import chdir, getcwd, system
+import signal
+from os import chdir, getcwd, killpg, system, setsid, kill
+from subprocess import PIPE, Popen, TimeoutExpired
+from time import monotonic as timer
 from typing import List
 
+from count_approx import check_if_ind, append_ind_set, read_approx_result
 from cnf import CNF
 from cnf_io import read_auto_size, write_cnf_file
 
@@ -16,20 +19,59 @@ def count_exact(F: CNF) -> int:
     write_cnf_file(F, tempFileName)
     query = "./../sharpSAT/build/Release/sharpSAT {} > {}".format(tempFileName, output)
     system(query)
-    return read_result()
+    return read_sharp_result()
 
 
-def count_exact_with_timeout(F: CNF, timeout_limit: int) -> int:
-    write_cnf_file(F, tempFileName)
-    query = ["./../sharpSAT/build/Release/sharpSAT {} > {}".format(tempFileName, output)]
-    try:
-        process = subprocess.run(query, shell=True, timeout=timeout_limit)
-        return read_result()
-    except:
-        return None
+def count_sharp_with_timeout(filename: str, timeout_limit: int) -> int:
+    query = ["./../sharpSAT/build/Release/sharpSAT {} > {}".format(filename, output)]
+    # stolen from https://stackoverflow.com/questions/36952245/subprocess-timeout-failure
+    with Popen(query, shell=True, stdout=PIPE, preexec_fn=setsid) as process:
+        try:
+            output_text = process.communicate(timeout=timeout_limit)[0]
+            return read_sharp_result()
+        except TimeoutExpired:
+            killpg(process.pid, signal.SIGINT)  # send signal to the process group
+            output_text = process.communicate()[0]
+            return -1
 
 
-def count_exact_ganak(input_cnf: str) -> int:
+def count_hom_with_timeout(filename: str, solver: str, timeout_limit: int, count_type: str) -> int:
+    reset_cwd = getcwd()
+    if solver == "ganak":
+        chdir("../ganak/scripts/")
+        query = ["./run_ganak.sh ../../src/{} > ../../src/{}".format(filename, output)]
+    elif solver == "sharp":
+        query = ["./../sharpSAT/build/Release/sharpSAT {} > {}".format(filename, output)]
+    # stolen from https://stackoverflow.com/questions/36952245/subprocess-timeout-failure
+    elif solver[:8] == "approxmc":
+        if not check_if_ind(filename):
+            append_ind_set(filename)
+        query = ["approxmc{} {} > {}".format(solver[-1], filename, output)]
+    else:
+        print("incorrect solver input")
+    start = timer()
+    with Popen(query, shell=True, stdout=PIPE, preexec_fn=setsid) as process:
+        try:
+            output_text = process.communicate(timeout=timeout_limit)[0]
+        except TimeoutExpired:
+            killpg(process.pid, signal.SIGINT)  # send signal to the process group
+            chdir(reset_cwd)
+            time = timer() - start
+            return -1
+    time = timer() - start
+    auto_size = 1
+    if count_type == "emb":
+        auto_size = read_auto_size(filename)
+    if solver == "ganak":
+        chdir(reset_cwd)
+        return int(read_ganak_result() / auto_size)
+    elif solver == "sharp":
+        return int(read_sharp_result() / auto_size)
+    else:
+        return int(read_approx_result() / auto_size)
+
+
+def count_exact_ganak(filename: str) -> int:
     query_str = "./run_ganak.sh ../../src/{} > ../../src/{}".format(input_cnf, output)
     reset_cwd = getcwd()
     chdir("../ganak/scripts/")
@@ -38,7 +80,7 @@ def count_exact_ganak(input_cnf: str) -> int:
     return read_ganak_result()
 
 
-def count_hom_ganak(filename: str, output="input/output.txt") -> int:
+def count_hom_ganak(filename: str) -> int:
     query_str = "./run_ganak.sh ../../src/{} > ../../src/{}".format(filename, output)
     reset_cwd = getcwd()
     chdir("../ganak/scripts/")
@@ -57,7 +99,7 @@ def read_ganak_result() -> int:
     return -1
 
 
-def read_result() -> int:
+def read_sharp_result() -> int:
     with open(output, "r") as exactCount:
         resultLines = exactCount.readlines()
     return int(resultLines[-5])
@@ -67,22 +109,24 @@ def read_ganak_time() -> float:
     with open(output, "r") as result_file:
         result_lines = result_file.readlines()
     for line in result_lines:
-        if len(line)>5 and line[:6] == "c time":
+        if len(line) > 5 and line[:6] == "c time":
             return float(line.split()[-1][:-1])
     return -1.0
+
 
 def read_sharp_time() -> float:
     with open(output, "r") as result_file:
         result_lines = result_file.readlines()
     for line in result_lines:
-        if len(line)>5 and line[:5] == "time:":
+        if len(line) > 5 and line[:5] == "time:":
             return float(line.split()[-1][:-1])
     return -1.0
 
-def count_exact_file(filename: str, output_file="input/output.txt") -> List:
+
+def count_sharp_file(filename: str, output_file="input/output.txt") -> List:
     query = "./../sharpSAT/build/Release/sharpSAT {} > {}".format(filename, output_file)
     system(query)
-    return read_result_file(output_file)
+    return read_sharp_result_and_time(output_file)
 
 
 def count_hom_sharp(filename: str, output_file="input/output.txt") -> int:
@@ -100,7 +144,7 @@ def read_hom_result_file(output_file: str) -> int:
     return -1
 
 
-def read_result_file(output_file: str) -> List:
+def read_sharp_result_and_time(output_file: str) -> List:
     with open(output_file, "r") as exactCount:
         resultLines = exactCount.readlines()
     if resultLines != []:

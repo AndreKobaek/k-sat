@@ -2,8 +2,10 @@ from sys import argv
 
 from cnf import CNF
 from cnf_io import write_cnf_file
-from count_exact import count_exact_file
+from count_exact import count_sharp_file
 from graph import Graph
+
+suggested_dir = "generated-hom-sub-input"
 
 commandline_accessed = False
 try:
@@ -18,6 +20,7 @@ except:
 
 
 def read_graph(graph_filename: str) -> Graph:
+    # print(graph_filename)
     with open(graph_filename, "r") as graph_file:
         lines = list(filter(lambda line: line.strip(), graph_file.readlines()))
     graph = Graph()
@@ -39,6 +42,7 @@ def read_graph(graph_filename: str) -> Graph:
             except:
                 pass
         else:
+            split_char = ""
             if line[0] == "n" or line[0] == "e":
                 split_char = line[0]
             graph.edges.append(sorted([int(x) for x in line.strip(split_char).split()]))
@@ -46,7 +50,13 @@ def read_graph(graph_filename: str) -> Graph:
     return graph
 
 
-def produce_cnf(problemType: str, pattern_filename: str, graph_filename: str, compute_automorph_size=True) -> str:
+def produce_cnf(
+    problemType: str,
+    pattern_filename: str,
+    graph_filename: str,
+    target_dir: str = suggested_dir,
+    compute_automorph_size=True,
+) -> str:
     # read input files
     pattern = read_graph(pattern_filename)
     graph = read_graph(graph_filename)
@@ -91,11 +101,12 @@ def produce_cnf(problemType: str, pattern_filename: str, graph_filename: str, co
         # embed it in a comment comment line on top.
     auto_size = 0
     if compute_automorph_size:
-        auto_size_problem = produce_cnf("--emb", pattern_filename, pattern_filename, False)
-        auto_size = int(count_exact_file(auto_size_problem)[0])
+        auto_size_problem = produce_cnf("--emb", pattern_filename, pattern_filename, target_dir, False)
+        auto_size = int(count_sharp_file(auto_size_problem)[0])
 
     cnf.number_of_clauses = len(cnf.clauses)
-    cnf_file_name = "generated-input/cnf-{}-h-{}-g-{}.cnf".format(
+    cnf_file_name = "{}/cnf-{}-h-{}-g-{}.cnf".format(
+        target_dir,
         problemType.strip("--"),
         pattern_filename.split("/")[-1].split(".")[0],
         graph_filename.split("/")[-1].split(".")[0],

@@ -22,7 +22,7 @@ def append_ind_set(filename: str) -> bool:
     write_cnf_file(formula, filename, auto_size, ind_set)
 
 
-def read_result(filename: str, result_type: str):
+def read_approx_result(filename: str, result_type: str):
     with open(filename, "r") as result:
         result_lines = result.readlines()
     if result_type == "sol":
@@ -48,6 +48,7 @@ def count_hom_approxmc(filename: str, version: int) -> int:
     count = count_approxmc(filename, version)
     auto_size = read_auto_size(filename)
     return count / auto_size
+
 
 def get_approxmc_time() -> int:
     return read_result(output, "time")

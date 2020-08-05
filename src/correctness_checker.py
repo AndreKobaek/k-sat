@@ -36,4 +36,5 @@ def check_solutions(cnf_problem: string):
             print("CNF: {0}: CE = {1} in {2:.2f}".format(cnf_problem.name, exact_solutions, timer_exact))
 
 
-check_solutions()
+# solvers = ["ganak", "sharp", "approxmc3", "approxmc4"]
+# count_exact.count_hom_with_timeout("generated-input/myFile2.cnf", "ganak", 60, "hom")

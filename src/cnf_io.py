@@ -16,7 +16,7 @@ def write_cnf_file(F: CNF, filename: str, auto_size: int = 0, ind_set: List[int]
         auto_size_line = "c automorphism group size {}\n".format(auto_size)
     metadata = "p cnf {} {}\n".format(F.number_of_literals, F.number_of_clauses)
     if ind_set != []:
-        ind_set_line = "c ind " + " ".join([str(x) for x in ind_set]) + " 0\n"
+        ind_set_line = "c ind " + " ".join([str(x) for x in ind_set]) + "\n"
     with open(filename, "w") as cnf_file:
         if ind_set != []:
             cnf_file.write(ind_set_line)
