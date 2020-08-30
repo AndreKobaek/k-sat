@@ -1,0 +1,7 @@
+solver,problem_type,time,size,benchmark
+ganak,--emb,2368.1621672322995,6,jazzmusicians
+ganak,--hom,2331.307876198301,6,jazzmusicians
+homSub,--emb,22.857071194202216,6,jazzmusicians
+homSub,--hom,18.61460464589892,6,jazzmusicians
+sharp,--emb,2253.022000807403,6,jazzmusicians
+sharp,--hom,1207.4919371734998,6,jazzmusicians

@@ -14,7 +14,7 @@ output_file = "input/output_graph.txt"
 
 def count_homSub_with_timeout(
     count_type: str, input_pattern: int, input_graph: int, timeout_limit: int, output_file=output_file
-) -> int:
+) -> (int, float):
     query = "./../SubgraphThesis/experiments-build/experiments/experiments  -count-{} -h {} -g {} > {}".format(
         count_type, input_pattern, input_graph, output_file
     )
@@ -24,9 +24,9 @@ def count_homSub_with_timeout(
             output_text = process.communicate(timeout=timeout_limit)[0]
         except TimeoutExpired:
             killpg(process.pid, signal.SIGINT)  # send signal to the process group
-            return -1
+            return (-1, timeout_limit)
     time = timer() - start
-    return read_result()
+    return (read_result(), time)
 
 
 def count_homSub(count_type: str, input_pattern: int, input_graph: int, output_file=output_file) -> int:

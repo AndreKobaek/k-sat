@@ -1,19 +1,35 @@
-import os
+import signal
+
+from os import chdir, getcwd, system  # , killpg, setsid, kill
+
+# from subprocess import PIPE, Popen, TimeoutExpired
+# from time import monotonic as timer
 from typing import List
 
 output = "computed-set.ind"
 
 
 def read_ind_set():
-    with open("input/" + output) as computed_set:
+    with open("input/" + output, "r") as computed_set:
         ind_set = computed_set.readlines()
-    return list(map(int, ind_set[0].split()))
+    try:
+        return list(map(int, ind_set[0].split()))
+    except:
+        return []
 
 
-def extract_ind_set(filename: str) -> List[int]:
-    cmd = "./mis.py ../src/{} --out ../src/input/{}".format(filename, output)
-    reset_cwd = os.getcwd()
-    os.chdir("../mis")
-    os.system(cmd)
-    os.chdir(reset_cwd)
+def clear_ind_set():
+    with open("input/" + output, "w") as set_to_clear:
+        pass
+
+
+def extract_ind_set(filename: str, timeout_limit: int) -> List[int]:
+    clear_ind_set()
+    query = "./mis.py ../src/{} --timeout {} --out ../src/input/{} > /dev/null".format(
+        filename, timeout_limit, output
+    )
+    reset_cwd = getcwd()
+    chdir("../mis")
+    system(query)
+    chdir(reset_cwd)
     return read_ind_set()

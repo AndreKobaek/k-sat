@@ -1,6 +1,6 @@
 {
     "python.pythonPath": "/usr/bin/python",
     "python.autoComplete.extraPaths": [
-        "/home/andre/Documents/research/k-sat/src"
+        "/src"
     ]
 }

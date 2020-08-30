@@ -2,7 +2,7 @@ import signal
 from os import chdir, getcwd, killpg, system, setsid, kill
 from subprocess import PIPE, Popen, TimeoutExpired
 from time import monotonic as timer
-from typing import List
+from typing import List, Tuple
 
 from count_approx import check_if_ind, append_ind_set, read_approx_result
 from cnf import CNF
@@ -35,20 +35,26 @@ def count_sharp_with_timeout(filename: str, timeout_limit: int) -> int:
             return -1
 
 
-def count_hom_with_timeout(filename: str, solver: str, timeout_limit: int, count_type: str) -> int:
+ind_set_timeout = 10
+
+
+def count_hom_with_timeout(filename: str, solver: str, timeout_limit: int, count_type: str) -> Tuple[int, float]:
     reset_cwd = getcwd()
     if solver == "ganak":
         chdir("../ganak/scripts/")
         query = ["./run_ganak.sh ../../src/{} > ../../src/{}".format(filename, output)]
     elif solver == "sharp":
         query = ["./../sharpSAT/build/Release/sharpSAT {} > {}".format(filename, output)]
-    # stolen from https://stackoverflow.com/questions/36952245/subprocess-timeout-failure
     elif solver[:8] == "approxmc":
         if not check_if_ind(filename):
-            append_ind_set(filename)
+            bool_timeout = append_ind_set(filename, ind_set_timeout)
+            if not bool_timeout:
+                return [-1, timeout_limit]
         query = ["approxmc{} {} > {}".format(solver[-1], filename, output)]
     else:
         print("incorrect solver input")
+        return (None, None)
+    # stolen from https://stackoverflow.com/questions/36952245/subprocess-timeout-failure
     start = timer()
     with Popen(query, shell=True, stdout=PIPE, preexec_fn=setsid) as process:
         try:
@@ -56,23 +62,24 @@ def count_hom_with_timeout(filename: str, solver: str, timeout_limit: int, count
         except TimeoutExpired:
             killpg(process.pid, signal.SIGINT)  # send signal to the process group
             chdir(reset_cwd)
-            time = timer() - start
-            return -1
+            return (-1, 2 * timeout_limit)
     time = timer() - start
     auto_size = 1
-    if count_type == "emb":
-        auto_size = read_auto_size(filename)
     if solver == "ganak":
         chdir(reset_cwd)
-        return int(read_ganak_result() / auto_size)
+    if count_type == "--emb":
+        auto_size = read_auto_size(filename)
+    if solver == "ganak":
+        sols = int(read_ganak_result() / auto_size)
     elif solver == "sharp":
-        return int(read_sharp_result() / auto_size)
+        sols = int(read_sharp_result() / auto_size)
     else:
-        return int(read_approx_result() / auto_size)
+        sols = int(read_approx_result() / auto_size)
+    return (sols, time)
 
 
 def count_exact_ganak(filename: str) -> int:
-    query_str = "./run_ganak.sh ../../src/{} > ../../src/{}".format(input_cnf, output)
+    query_str = "./run_ganak.sh ../../src/{} > ../../src/{}".format(filename, output)
     reset_cwd = getcwd()
     chdir("../ganak/scripts/")
     system(query_str)
