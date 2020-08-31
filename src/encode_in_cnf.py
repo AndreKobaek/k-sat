@@ -8,6 +8,7 @@ from os import path
 
 suggested_dir = "input/generated-hom-sub"
 
+
 def read_graph(graph_filename: str) -> Graph:
     # print(graph_filename)
     with open(graph_filename, "r") as graph_file:
@@ -21,7 +22,7 @@ def read_graph(graph_filename: str) -> Graph:
         elif line[0] == "p":
             metadata = line.split()
             graph.number_of_verticies = int(metadata[2])
-            
+
         elif line[0] == "%":
             metadata = line.split()
             # skipping comment lines not containing meta data, but using same indicator character
@@ -68,7 +69,6 @@ def produce_cnf(
     for a in range(1, pattern.number_of_verticies + 1):
         cnf.clauses.append(list(pair(a, v) for v in range(1, graph.number_of_verticies + 1)))
 
-
     for a in range(1, pattern.number_of_verticies + 1):
         for v in range(1, graph.number_of_verticies + 1):
             for w in range(v + 1, graph.number_of_verticies + 1):
@@ -88,7 +88,7 @@ def produce_cnf(
         for v, ws in non_existant_pairs.items():
             for w in ws:
                 cnf.clauses.append([-pair(a, v), -pair(b, w)])
-                if pair(a,v) != pair(a,w) or pair(b,w) != pair(b,v):
+                if pair(a, v) != pair(a, w) or pair(b, w) != pair(b, v):
                     cnf.clauses.append([-pair(a, w), -pair(b, v)])
 
     # changed second pair to negative, not in the SS notes.

@@ -1,20 +1,14 @@
 import signal
-from os import chdir, getcwd, killpg, system, setsid, kill
+from os import killpg, system, setsid
 from subprocess import PIPE, Popen, TimeoutExpired
-from sys import argv
 from time import monotonic as timer
-
-from graph import Graph
+from typing import Tuple
 
 output_file = "input/output_graph.txt"
 
-# input_pattern = argv[1]
-# input_graph = argv[2]
-
-
 def count_homSub_with_timeout(
     count_type: str, input_pattern: int, input_graph: int, timeout_limit: int, output_file=output_file
-) -> (int, float):
+) -> Tuple[int, float]:
     query = "./../SubgraphThesis/experiments-build/experiments/experiments  -count-{} -h {} -g {} > {}".format(
         count_type, input_pattern, input_graph, output_file
     )
@@ -24,9 +18,12 @@ def count_homSub_with_timeout(
             output_text = process.communicate(timeout=timeout_limit)[0]
         except TimeoutExpired:
             killpg(process.pid, signal.SIGINT)  # send signal to the process group
-            return (-1, timeout_limit)
+            return (-1, 2*timeout_limit)
     time = timer() - start
-    return (read_result(), time)
+    res = read_result()
+    if res == -1:
+        time = timeout_limit*2
+    return (res, time)
 
 
 def count_homSub(count_type: str, input_pattern: int, input_graph: int, output_file=output_file) -> int:

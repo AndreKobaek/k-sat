@@ -10,30 +10,32 @@ from hom_sub_sanity_check import extract_file_names
 
 dir_path_patterns = "input/graphs/patterns"
 target_path = "input/generated-hom-sub"
-#"kublenz"
-#specific_test_graphs = [f"{dir_path_graphs}/jazzmusicians.gr",f"{dir_path_graphs}/euroroads.gr"]
-#Specific_test_patterns = [f"{dir_path_patterns}/square.gr",f"{dir_path_patterns}/cycle5.gr",f"{dir_path_patterns}/trianglehouse.gr"]
 
 solvers = ["ganak", "sharp", "homSub", "approxmc3", "approxmc4"]
 solvers = solvers[:3]
 problem_types = ["--hom", "--emb"]
-timeout = 45
 
 data_fields = ["h", "g", "cnf", "datetime", "solver", "sols", "time", "experiment", "timeout", "problem_type", "i"]
 
-def run_experiment(experiment, experiment_name):
+
+def run_experiment(experiment: str, experiment_name: str, timeout: int):
     dir_path_graphs = "input/graphs/{}".format(experiment)
 
     dt_str = datetime.now().strftime("%d-%m-%Y-%H-%M")
 
-    output_file = "input/{}-{}".format(experiment, dt_str)
+    output_file = f"input/{experiment_name}-{dt_str}-{experiment}"
 
     df = pd.DataFrame(columns=data_fields)
-    graphs, _ = extract_file_names(dir_path_graphs)
-    _, patterns = extract_file_names(dir_path_patterns)
-
-    #graphs = specific_test_graphs
-    #patterns = Specific_test_patterns
+    if experiment == "kublenz":
+        patterns = [
+            f"{dir_path_patterns}/square.gr",
+            f"{dir_path_patterns}/cycle5.gr",
+            f"{dir_path_patterns}/trianglehouse.gr",
+        ]
+        graphs, _ = extract_file_names(dir_path_graphs, True)
+    else:
+        graphs, _ = extract_file_names(dir_path_graphs)
+        _, patterns = extract_file_names(dir_path_patterns)
 
     total_combinations = len(graphs) * len(patterns) * len(problem_types)
     k = 0

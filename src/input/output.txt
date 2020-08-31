@@ -1,2 +1,55 @@
-c Trying to run Ganak on ../../src/input/generated-hom-sub/cnf-hom-h-cycle7-g-ag2-7.cnf  with  timeout: 1800
-c Ganak did NOT work
+c Trying to run Ganak on ../../src/input/generated-hom-sub/cnf-hom-h-cycle5-g-paley-37.cnf  with  timeout: 1800
+c Setting the timout to: 100000
+c Outputting solution to console
+c GANAK version 1.0.0
+c The value of hashrange is 64x1
+c ganak GIT revision: 23f09a8b74da31424c0bffe2e3d0bac5f9ffa2f8
+c ganak build env: CMAKE_CXX_COMPILER = /usr/bin/c++ | CMAKE_CXX_FLAGS =  -mtune=native -Wall -Wextra -Wunused -Wsign-compare -fno-omit-frame-pointer -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wpointer-arith -Wformat-nonliteral -Winit-self -Wparentheses -Wunreachable-code -ggdb3 | COMPILE_DEFINES =  | STATICCOMPILE = OFF | ONLY_SIMPLE =  | Boost_FOUND =  | ZLIB_FOUND =  | ENABLE_TESTING =  | ENABLE_ASSERTIONS = ON | MY_TARGETS =  | compilation date time = Jul  2 2020 13:31:00
+c Setting the timout to: 100000
+c Solving ../../src/input/generated-hom-sub/cnf-hom-h-cycle5-g-paley-37.cnf
+c variables (all/used/free): 	185/185/0
+c clauses (all/long/binary/unit): 6860/5/6855/0
+c Sampling set not present! So doing total model counting.
+c 
+c Preprocessing ..
+c DONE
+c variables (all/used/free): 	185/185/0
+c clauses (all/long/binary/unit): 6860/5/6855/0
+c Maximum cache size:	151 MB
+c 
+c Max decision level :25
+c Max decision level :50
+c Max decision level :75
+c Max decision level :100
+c Doing Restart
+c We have solved halfed
+c We have solved halfed
+c 
+c 
+c variables (total / active / free)	185/185/0
+c clauses (removed) 			6860 (0)
+c decisions 				37737
+c Max. decision level 			118
+c conflicts 				142
+c conflict clauses (all/bin/unit) 	23/0/0
+c 
+c failed literals found by implicit BCP 	 0
+c implicit BCP miss rate 	 100%
+c bytes cache size     	23857256	
+c bytes cache (overall) 	24338652
+c bytes cache components (overall) 	4104244
+c bytes cache (infra / comps) 20234408/3622848	
+c bytes pure comp data (curr)    18446744073708321868
+c bytes pure comp data (overall) 853888
+c bytes cache with sysoverh (curr)    6038080
+c bytes cache with sysoverh (overall) 6839888
+c cache (lookup / stores / hits) 			79420/42747/36674
+c cache miss rate 53.8227%
+c avg. variable count (stores / hits) 	37.6403/16.6751
+c 
+c 
+c # solutions 
+s mc 1854640
+c # END
+c 
+c time: 0.430377s

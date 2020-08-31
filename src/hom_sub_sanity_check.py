@@ -4,7 +4,8 @@ from encode_in_cnf import produce_cnf
 import os
 from typing import List, Tuple
 
-def extract_file_names(dir_path: str, no_size_limit: bool=False) -> Tuple[List[str], List[str]]:
+
+def extract_file_names(dir_path: str, no_size_limit: bool = False) -> Tuple[List[str], List[str]]:
     graph_names = []
     pattern_names = []
     for dirpath, _, files in os.walk(dir_path):
@@ -44,6 +45,6 @@ def main():
     solvers = ["ganak", "sharp", "approxmc3", "approxmc4"]
     # solvers = solvers[:2]
     problem_types = ["--hom", "--emb"]
-    problem_type = problem_types[0] 
+    problem_type = problem_types[0]
     timeout = 300
     check_sanity(dir_path, solvers, problem_type, target_path, timeout)

@@ -1,37 +1,39 @@
-from input-unifier import dir_path
-from score_analyzer import analyze
-from domain_general_experiment import run_experiment
 import os
 
+from domain_general_experiment import run_experiment
+from input_unifier import dir_path
+from score_analyzer import analyze
 
-folders = [
-    "ag",
-    "cfi",
-    "cmz",
-    "k",
-    "paley",
-    "triang",
-]
+small_instances = ["ag", "cfi", "cmz", "k", "paley", "triang", "sts"]
+large_instances = ["kublenz"]
 
 
 def create_dir_if_abscent(dir_path: str):
     if not os.path.isdir(dir_path):
         os.makedirs(dir_path)
 
-experiment_name = "large_problems"
+
+timeout = 45
 
 
 if __name__ == "__main__":
 
-
     create_dir_if_abscent("input/generated-cnf-hom-sub")
 
-    #Run the expiriments
-    for experiment in folders:
-        run_experiment(experiment, experiment_name)
-    
+    # Run the experiments
+    experiment_name = "small_problems"
+
+    for experiment in small_instances:
+        run_experiment(experiment, experiment_name, 45)
+
     create_dir_if_abscent("results")
-    
-    #Run the analyser
+
     analyze(experiment_name)
 
+    experiment_name = "large_problems"
+
+    for experiment in large_instances:
+        run_experiment(experiment, experiment_name, 900)
+
+    # Run the analyser
+    analyze(experiment_name)

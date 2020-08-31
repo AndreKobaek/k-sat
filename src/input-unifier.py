@@ -13,6 +13,7 @@ def write_graph_file(graph: Graph, output_file_name: str):
         graph_file.write(metadata)
         graph_file.writelines(" ".join([str(x) for x in y] + ["\n"]) for y in graph.edges)
 
+
 if __name__ == "__main__":
     for dirpath, dirnames, files in os.walk(dir_path):
         for file_name in files:

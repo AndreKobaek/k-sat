@@ -16,6 +16,7 @@ def test_encoder(pattern_file: str, graph_file: str) -> bool:
     result_sharpSAT = count_hom_sharp(cnf_file_name)
     print("file:{},homSub:{},Ganak:{},sharpS:{}".format(cnf_file_name, correct_result, result_ganak, result_sharpSAT))
 
+
 if __name__ == "__main__":
     for pattern in pattern_inputs:
         for graph in graph_inputs:

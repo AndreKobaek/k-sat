@@ -18,4 +18,4 @@ Please confirm that the script experiments has the following path relatively to 
 ../SubgraphThesis/experiments-build/experiments/experiments
 
 ### Experiments
-By running main.py the experiments are executed 
+By running main.py the experiments are performed as well as collection and summarization of the results which can then be found in /results folder.
