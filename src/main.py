@@ -17,7 +17,6 @@ timeout = 45
 
 
 if __name__ == "__main__":
-
     create_dir_if_abscent("input/generated-cnf-hom-sub")
 
     # Run the experiments
