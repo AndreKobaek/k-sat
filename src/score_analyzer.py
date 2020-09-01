@@ -17,7 +17,7 @@ def analyse_input(filename: str) -> DataFrame:
 
     for cnf in cnfs:
         cnf_rows = df[df["cnf"] == cnf]["sols"]
-        # assert len(cnf_rows[cnf_rows != -1].unique()) == 1, f"{filename}-{cnf}"
+        assert len(cnf_rows[cnf_rows != -1].unique()) == 1, f"{filename}-{cnf}"
         if len(cnf_rows[cnf_rows != -1].unique()) != 1:
             print(f"{filename} - {cnf}")
 
